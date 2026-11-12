@@ -9,7 +9,32 @@ for SQS, S3 and friends — no AWS account required.
 
 ## Status
 
-Work in progress. See the roadmap below.
+Work in progress. Phase 1 (ledger core) is done; see the roadmap below.
+
+## Getting started
+
+Requirements: Node.js 22+ and Docker.
+
+```bash
+npm install
+npm test            # spins up a disposable PostgreSQL via Testcontainers
+```
+
+To run a local database for development:
+
+```bash
+npm run db:up
+DATABASE_URL=postgres://ledgerline:ledgerline@localhost:5432/ledgerline npm run db:migrate
+```
+
+## Layout
+
+```
+packages/ledger   Double-entry ledger: schema, invariants, locking, idempotency (framework-free)
+docs/adr          Architecture decision records
+```
+
+Design decisions are documented in [docs/adr](docs/adr).
 
 ## Roadmap
 
